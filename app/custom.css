@@ -1,0 +1,16 @@
+body {
+  background-color: #0c0c0c;
+  color: #ededed;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s;
+}
+
+@keyframes draw {
+  50% {
+    stroke-dashoffset: 0;
+  }
+}

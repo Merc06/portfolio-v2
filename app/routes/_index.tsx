@@ -1,41 +1,44 @@
-import type { MetaFunction } from "@remix-run/node";
+import { AnimatePresence, motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 2,
+    },
+  },
 };
 
-export default function Index() {
+export default function Home() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        variants={container}
+        initial='hidden'
+        animate='show'
+        className='flex items-center h-full justify-center flex-col gap-3'
+      >
+        <small className='text-xs text-gray-500 tracking-widest'>Portfolio by</small>
+
+        <h1 className='text-[5em] uppercase text-accent font-bold leading-none'>
+          M<span className='text-white'>a</span>
+          rc
+        </h1>
+
+        <p className='text-gray-400'>
+          <TypeAnimation
+            sequence={['Frontend', 3000, 'React', 4000, 'RemixJS', 3000, 'NextJS', 3000]}
+            wrapper='span'
+            speed={1}
+            deletionSpeed={1}
+            repeat={Infinity}
+            className='font-serif text-white'
+          />
+          Developer
+        </p>
+      </motion.div>
+    </AnimatePresence>
   );
 }
