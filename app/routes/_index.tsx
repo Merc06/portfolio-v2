@@ -1,15 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delay: 2,
-    },
-  },
-};
+import { container } from '~/constants/variants';
 
 export default function Home() {
   return (

@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <motion.div key={pathname} className='w-full h-screen fixed overflow-hidden'>
         <Transition />
         <ParticlesContainer />
-        <div className='p-10 h-full w-full'>{children}</div>
+        <div className='h-full w-full'>{children}</div>
         <Navs />
       </motion.div>
     </AnimatePresence>
